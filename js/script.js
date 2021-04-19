@@ -1,7 +1,7 @@
 fetch("https://yesno.wtf/api")
     .then((resonse) => resonse.json())
     .then((data) => {
-        console.log(data)
+        // console.log(data)
 
         let container = document.getElementById('container')
         container.innerHTML = `
