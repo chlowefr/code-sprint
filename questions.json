@@ -1,0 +1,65 @@
+{"response_code":0,
+ "results":
+    [{
+    "category":"Animals",
+    "type":"multiple",
+    "difficulty":"easy",
+    
+    "question":"What is the scientific name for modern day humans?",
+    "correct_answer":"Homo Sapiens",
+    "incorrect_answers":[
+        "Homo Ergaster",
+        "Homo Erectus",
+        "Homo Neanderthalensis"
+    ]
+    },
+    
+    {"category":"Animals",
+    "type":"multiple",
+    "difficulty":"easy",
+    "question":"The K\u0101k\u0101p\u014d is a large, flightless, nocturnal parrot native to which country?",
+    "correct_answer":"New Zealand",
+    "incorrect_answers":[
+        "South Africa",
+        "Australia",
+        "Madagascar"
+    ]
+    },
+        
+    {"category":"Animals",
+    "type":"multiple",
+    "difficulty":"easy",
+    "question":"How many legs do butterflies have?",
+    "correct_answer":"6",
+    "incorrect_answers":[
+        "2",
+        "4",
+        "0"
+    ]
+    },
+        
+    {"category":"Animals",
+    "type":"multiple",
+    "difficulty":"easy",
+    "question":"What do you call a baby bat?",
+    "correct_answer":"Pup",
+    "incorrect_answers":[
+        "Cub",
+        "Chick",
+        "Kid"
+    ]
+    },
+    
+    {"category":"Animals",
+    "type":"multiple",
+    "difficulty":"easy",
+    "question":"What is Grumpy Cat&#039;s real name?",
+    "correct_answer":"Tardar Sauce",
+    "incorrect_answers":[
+        "Sauce",
+        "Minnie",
+        "Broccoli"
+    ]
+    }
+    
+]}

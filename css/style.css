@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'cloister_blacklight';
+    src: url('cloisterblack-webfont.woff2') format('woff2'),
+         url('cloisterblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../media/bg-city.png);
+    background-size: cover;
+    padding: 0 200px;
+
+}
+h1{
+    font-family: cabazon, serif;
+    font-weight: regular;
+    font-size: 50px;
+    color: #000000;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 30px 30px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    cursor: pointer;
+}
+.col-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 250px;
+    height: 350px;
+    background-size: cover;
+    margin: 20px 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.col-center h2{
+    position: absolute;
+    bottom: 10px;
+    font-size: 40px;
+    color: white;
+    font-family: cabazon, serif;
+}
