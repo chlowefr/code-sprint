@@ -53,114 +53,54 @@ function handleResponse(response) {
 }
 
 function handleData(data) {
+
     console.log(data);
 
-    let characterHTML = document.getElementById("character1")
-        characterHTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[0].node.name.first}</h2>
-        `
-    characterHTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[0].node.image.large + ")";
+    const sasha = getChar(data, 0)
+    showinfos(sasha)
 
-    //Hover afficher la data de la description
-    characterHTML.addEventListener("mouseover", function( event ) {
-        characterHTML.innerHTML = `
-            <p>${data.data.Media.characters.edges[0].node.isFavourite}</p>
-        `
-      });
+    const zoë = getChar(data, 2)
+    showinfos(zoë)
 
-      characterHTML.addEventListener("mouseleave", function( event ) {
-        // on cible la cible de mouseleave
-        event.target.style.opacity = "1";});
+    const levi = getChar(data, 3)
+    showinfos(levi)
 
-    let character2HTML = document.getElementById("character2")
-        character2HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[2].node.name.first}</h2>
-        `
-        character2HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[2].node.image.large + ")";
+    const armin = getChar(data, 4)
+    showinfos(armin)
 
-    let character3HTML = document.getElementById("character3")
-        character3HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[3].node.name.first}</h2>
-        `
-        character3HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[3].node.image.large + ")";
+    const erwin = getChar(data, 6)
+    showinfos(erwin)
 
-    let character4HTML = document.getElementById("character4")
-        character4HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[4].node.name.first}</h2>
-        `
-        character4HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[4].node.image.large + ")";
+    const connie = getChar(data, 7)
+    showinfos(connie)
 
-    let character5HTML = document.getElementById("character5")
-        character5HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[6].node.name.first}</h2>
-        `
-        character5HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[6].node.image.large + ")";
+    const eren = getChar(data, 10)
+    showinfos(eren)
 
-    let character6HTML = document.getElementById("character6")
-        character6HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[7].node.name.first}</h2>
-        `
-        character6HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[7].node.image.large + ")";
+    const mikasa = getChar(data, 17)
+    showinfos(mikasa)
 
-    let character7HTML = document.getElementById("character7")
-        character7HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[10].node.name.first}</h2>
-        `
-        character7HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[10].node.image.large + ")";
-
-    let character8HTML = document.getElementById("character8")
-        character8HTML.innerHTML = `
-            <h2>${data.data.Media.characters.edges[17].node.name.first}</h2>
-        `
-        character8HTML.style.backgroundImage = "url(" + data.data.Media.characters.edges[17].node.image.large + ")";
+    const reiner = getChar(data, 20)
+    showinfos(reiner)
 
 }
 
-
-// function handleData(data) {
-
-//     console.log(data);
-
-//     const sasha = getChar(data, 0)
-//     showinfos(sasha)
-
-//     const zoë = getChar(data, 2)
-//     showinfos(zoë)
-
-//     const levi = getChar(data, 3)
-//     showinfos(levi)
-
-//     const armin = getChar(data, 4)
-//     showinfos(armin)
-
-//     const erwin = getChar(data, 6)
-//     showinfos(erwin)
-
-//     const connie = getChar(data, 7)
-//     showinfos(connie)
-
-//     const eren = getChar(data, 10)
-//     showinfos(eren)
-
-//     const mikasa = getChar(data, 17)
-//     showinfos(mikasa)
-
-//     const reiner = getChar(data, 20)
-//     showinfos(reiner)
-
-// }
-
-// function getChar(data, id){
-//     let char = data.data.Media.characters.edges[id]
-//     return char
-// }
-// function showinfos(char){
-//     let characterHTML = document.getElementById("character8")
-//     characterHTML.innerHTML = `
-//             <h3>${char.node.name.first}</h3>
-//             <img src="${char.node.image.large}" alt=""/>
-//         `
-// }
+function getChar(data, id){
+    let char = data.data.Media.characters.edges[id]
+    return char
+}
+function showinfos(char){
+    let charactersHTML = document.getElementById("characters")
+    const characterHTML = document.createElement("div")
+    characterHTML.id = "character" + char.node.name.first
+    characterHTML.classList.add("card-perso")
+    characterHTML.innerHTML = `
+            <h2>${char.node.name.first}</h2>
+            <div class="overlay"></div>
+        `
+    characterHTML.style.backgroundImage = "url(" + char.node.image.large + ")";
+    charactersHTML.append(characterHTML)
+}
 
 //RETURN ERROR
 

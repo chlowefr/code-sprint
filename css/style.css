@@ -6,14 +6,29 @@
     font-style: normal;
 }
 body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     background-image: url(../media/bg-city.png);
     background-size: cover;
     padding: 0 200px;
-
+}
+.btn{
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 15px;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-black{
+    background-color: black;
+    border: none;
+}
+.btn-left{
+    position: absolute;
+    left: 100px;
+    top: 40px;
+}
+.btn-black a{
+    color: white;
 }
 h1{
     font-family: cabazon, serif;
@@ -22,37 +37,66 @@ h1{
     color: #000000;
 }
 
-#container{
+.container{
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
-    padding: 30px 30px;
+    padding: 0px 30px;
 }
 .row{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 a{
     cursor: pointer;
+    text-decoration: none;
 }
-.col-center{
+.card-perso{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
     width: 250px;
-    height: 350px;
+    height: 275px;
     background-size: cover;
-    margin: 20px 0;
+    margin: 20px 20px;
     border-radius: 20px;
     cursor: pointer;
 }
-.col-center h2{
+#choice{
+    background-color: white;
+}
+.overlay{
     position: absolute;
-    bottom: 10px;
+    border-radius: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background: linear-gradient(180deg, #ffffff00, #00000088);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 0;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.overlay:hover {
+    opacity: 0;
+    transition: 0.25s ease-in;
+  }
+.card-perso h2{
+    position: absolute;
+    bottom: 0;
     font-size: 40px;
     color: white;
     font-family: cabazon, serif;
+    z-index: 9;
 }
