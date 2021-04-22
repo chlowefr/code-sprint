@@ -80,9 +80,6 @@ function handleData(data) {
     const mikasa = getChar(data, 17)
     showinfos(mikasa)
 
-    const reiner = getChar(data, 20)
-    showinfos(reiner)
-
 }
 
 function getChar(data, id){

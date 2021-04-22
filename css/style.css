@@ -8,7 +8,7 @@
 body{
     background-image: url(../media/bg-city.png);
     background-size: cover;
-    padding: 0 200px;
+    padding: 0 5%;
 }
 .btn{
     border-radius: 50px;
@@ -36,9 +36,17 @@ h1{
     font-size: 50px;
     color: #000000;
 }
-
+h3{
+    font-family: cabazon, serif;
+    font-weight: regular;
+    font-size: 35px;
+    color: #000000;
+    text-align: center;
+}
 .container{
     width: 100%;
+}
+#container-quiz, #container-choice{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,26 +57,75 @@ h1{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 70%;
+}
+.row-quest{
+    flex-wrap: nowrap;
 }
 a{
     cursor: pointer;
     text-decoration: none;
 }
+.card-container{
+    display: flex;
+    justify-content: space-between;
+}
+.card-choice{
+    background-image: url(../media/bg-logo-bataillon-exploration.jpg);
+    background-position: center;
+    width: 20vw;
+    background-size: cover;
+    margin: 20px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+    position: relative;
+    color: white;
+}
+.overlay-full h2{
+
+    font-size: 40px;
+    color: white;
+    font-family: Roboto, serif;
+    z-index: 9;
+    text-align: center;
+    font-weight: regular;
+}
+.overlay-full{
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background-color:  #01448ce3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    cursor: pointer;
+}
+.overlay-full:hover {
+    background-color:  #01448cb7;
+    transition: 0.25s ease-in;
+  }
 .card-perso{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    width: 250px;
+    width: 200px;
     height: 275px;
     background-size: cover;
     margin: 20px 20px;
     border-radius: 20px;
     cursor: pointer;
-}
-#choice{
-    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
 }
 .overlay{
     position: absolute;
@@ -86,7 +143,7 @@ a{
     align-items: flex-end;
     justify-content: center;
     z-index: 0;
-    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+    cursor: pointer;
 }
 .overlay:hover {
     opacity: 0;
@@ -99,4 +156,81 @@ a{
     color: white;
     font-family: cabazon, serif;
     z-index: 9;
+}
+.gif{
+    height: 200px;
+    width: 300px;
+}
+.label-gif{
+    height: 250px;
+    width: 450px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.input{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 30px;
+}
+.input label{
+    font-family: roboto, serif;
+    font-weight: regular;
+    font-size: 16px;
+    line-height: 16px;
+    color: #000000;
+    margin-left: 5px;
+    outline: solid rgb(255, 255, 255) 10px;
+    background-size: cover;
+    cursor: pointer;
+}
+.input label span{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+input[type="radio"]{
+    position: absolute;
+    top: -9000px;
+}
+/* input:checked + label {
+    outline: solid white 10px;
+    box-shadow: rgba(255, 255, 255, 0.753) 0px 0px 12px;
+}
+input:checked + label span {
+    background-color: white;
+    padding-bottom: 5px;
+} */
+
+#sasha-img{
+    height: 400px;
+    width: 250px;
+}
+
+/*DISPLAY NONE*/
+
+#container-quiz{
+    display: none;
+}
+#second-question{
+    display: none;
+}
+#third-question{
+    display: none;
+}
+#fourth-question{
+    display: none;
+}
+#fifth-question{
+    display: none;
+}
+#result-sasha, #result-hange, #result-levi, #result-armin, #result-erwin, #result-connie, #result-eren, #result-mikasa{
+    display: none;
 }

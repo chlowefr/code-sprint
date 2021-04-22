@@ -5,21 +5,361 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz personnalité - SNK</title>
+    <link rel="stylesheet" href="https://use.typekit.net/swt8ete.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <button class="btn btn-black btn-left"><a href="index.html">Retour à l'accueil</a></button>
+    <button class="btn btn-black btn-left">
+      <a href="#">Retour à l'accueil</a>
+    </button>
 
     <div class="container">
-      <h2>Which SNK Character Are You ?</h2>
-      <div id="first-question">
-        <p>Which food do you prefer?</p>
-        <input type="radio" name="i" value="Pie" /> Pie <br />
-        <input type="radio" name="i" value="Salad" /> Salad <br />
-        <input type="radio" name="i" value="Hamburger" /> Hamburger <br />
-        <input type="radio" name="i" value="Spaghetti" /> Spaghetti <br />
+      <div id="container-choice">
+        <h1>Choix du personnage</h1>
+        <div class="card-container">
+          <div id="choice" class="card-choice">
+            <div class="overlay-full">
+              <h2>Découvre quel personnage de SNK tu es !</h2>
+            </div>
+          </div>
+          <div class="row" id="characters"></div>
+        </div>
       </div>
 
+      <div id="container-quiz" class="container">
+        <h2>Which SNK Character Are You ?</h2>
+
+        <div id="first-question">
+          <h3>Tu es plutôt :</h3>
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest1Choice1"
+                name="question1"
+                value="bataillon-exploration"
+              />
+              <label id="fir-quest1" class="label-gif" for="quest1Choice1"
+                ><span class="label-value">Bataillon d’exploration</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest1Choice2"
+                name="question1"
+                value="brigade-speciale"
+              />
+              <label id="fir-quest2" class="label-gif" for="quest1Choice2"
+                ><span class="label-value">Brigade spéciale</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest1Choice3"
+                name="question1"
+                value="garnison"
+              />
+              <label id="fir-quest3" class="label-gif" for="quest1Choice3"
+                ><span class="label-value">Garnison</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest1Choice4"
+                name="question1"
+                value="titan"
+              />
+              <label id="fir-quest4" class="label-gif" for="quest1Choice4"
+                ><span class="label-value">Titan</span></label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="second-question">
+          <h3>Tu es plutôt :</h3>
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest2Choice1"
+                name="question2"
+                value="aider-ses-proches"
+              />
+              <label id="sec-quest1" class="label-gif" for="quest2Choice1"
+                ><span class="label-value">Aider ses proches</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest2Choice2"
+                name="question2"
+                value="jouer-avec-ses-amis"
+              />
+              <label id="sec-quest2" class="label-gif" for="quest2Choice2"
+                ><span class="label-value">Jouer avec ses amis</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest2Choice3"
+                name="question2"
+                value="rester-seul"
+              />
+              <label id="sec-quest3" class="label-gif" for="quest2Choice3"
+                ><span class="label-value">Rester seul</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest2Choice4"
+                name="question2"
+                value="fidele-au-bataillon"
+              />
+              <label id="sec-quest4" class="label-gif" for="quest2Choice4"
+                ><span class="label-value">Fidèle au bataillon</span></label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="third-question">
+          <h3>Tu es plutôt :</h3>
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest3Choice1"
+                name="question3"
+                value="restaurant"
+              />
+              <label id="thi-quest1" class="label-gif" for="quest3Choice1"
+                ><span class="label-value">Restaurant</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest3Choice2"
+                name="question3"
+                value="sortie-entre-ami"
+              />
+              <label id="thi-quest2" class="label-gif" for="quest3Choice2"
+                ><span class="label-value">Sortie entre ami</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest3Choice3"
+                name="question3"
+                value="discothèque"
+              />
+              <label id="thi-quest3" class="label-gif" for="quest3Choice3"
+                ><span class="label-value">Discothèque</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest3Choice4"
+                name="question3"
+                value="promenade-en-pleine-nature"
+              />
+              <label id="thi-quest4" class="label-gif" for="quest3Choice4"
+                ><span class="label-value"
+                  >Promenade en pleine nature</span
+                ></label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="fourth-question">
+          <h3>Tu es plutôt :</h3>
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest4Choice1"
+                name="question4"
+                value="toujours-propre-sur-toi"
+              />
+              <label id="fou-quest1" class="label-gif" for="quest4Choice1"
+                ><span class="label-value">Toujours propre sur toi</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest4Choice2"
+                name="question4"
+                value="souvent-nu"
+              />
+              <label id="fou-quest2" class="label-gif" for="quest4Choice2"
+                ><span class="label-value">Souvent nu</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest4Choice3"
+                name="question4"
+                value="amoché-en-toute-circonstance"
+              />
+              <label id="fou-quest3" class="label-gif" for="quest4Choice3"
+                ><span class="label-value"
+                  >Amoché en toute circonstance</span
+                ></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest4Choice4"
+                name="question4"
+                value="peu-important-tant-que-c-est-confortable"
+              />
+              <label id="fou-quest4" class="label-gif" for="quest4Choice4"
+                ><span class="label-value"
+                  >Peu important tant que c’est confortable</span
+                ></label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="fifth-question">
+          <h3>Tu es plutôt :</h3>
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest5Choice1"
+                name="question5"
+                value="toujours-propre-sur-toi"
+              />
+              <label id="fif-quest1" class="label-gif" for="quest5Choice1"
+                ><span class="label-value">Toujours propre sur toi</span></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest5Choice2"
+                name="question5"
+                value="souvent-nu"
+              />
+              <label id="fif-quest2" class="label-gif" for="quest5Choice2"
+                ><span class="label-value">Souvent nu</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row row-quest">
+            <div class="input">
+              <input
+                type="radio"
+                id="quest5Choice3"
+                name="question5"
+                value="amoché-en-toute-circonstance"
+              />
+              <label id="fif-quest3" class="label-gif" for="quest5Choice3"
+                ><span class="label-value"
+                  >Amoché en toute circonstance</span
+                ></label
+              >
+            </div>
+
+            <div class="input">
+              <input
+                type="radio"
+                id="quest5Choice4"
+                name="question5"
+                value="peu-important-tant-que-c-est-confortable"
+              />
+              <label id="fif-quest4" class="label-gif" for="quest5Choice4"
+                ><span class="label-value"
+                  >Peu important tant que c’est confortable</span
+                ></label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="result-section">
+          <div id="result-sasha">
+            <div id="sasha-img"></div>
+            <div id="sasha-desc">
+              <h2>Bravo, tu es : Sasha</h2>
+              <div class="result-name"></div>
+              <div class="result-description"></div>
+            </div>
+          </div>
+          <div id="result-hange">
+            <h2>Bravo, tu es : Hange</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-levi">
+            <h2>Bravo, tu es : Levi</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-armin">
+            <h2>Bravo, tu es : Armin</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-erwin">
+            <h2>Bravo, tu es : Erwin</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-connie">
+            <h2>Bravo, tu es : Connie</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-eren">
+            <h2>Bravo, tu es : Eren</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+          <div id="result-mikasa">
+            <h2>Bravo, tu es : Mikasa</h2>
+            <div class="result-name"></div>
+            <div class="result-description"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="js/scriptQuiz.js"></script>
