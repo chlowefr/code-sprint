@@ -1,6 +1,4 @@
-// Here we define our query as a multi-line string
-// Storing it in a separate .graphql/.gql file is also possible
-// Requête 
+// Requête API AniList
 var query = `
 query ($id: Int) { # Define which variables will be used in the query (id)
   Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
@@ -51,7 +49,7 @@ function handleResponse(response) {
     return response.ok ? json : Promise.reject(json);
     });
 }
-
+//Attribuer à chaque perso un numéro de ligne
 function handleData(data) {
 
     console.log(data);
@@ -90,21 +88,64 @@ function getChar(data, id){
 function showinfos(char){
   let charactersHTML = document.getElementById("characters")
   const characterHTML = document.createElement("div")
-  characterHTML.id = "character" + char.node.name.first
+  let charId = "character" + char.node.name.first
+  characterHTML.id = charId
   characterHTML.classList.add("card-perso")
   characterHTML.innerHTML = `
-          <h2>${char.node.name.first}</h2>
-          <div class="overlay"></div>
-      `
+    <h2>${char.node.name.first}</h2>
+    <a href="map.html"><div class="overlay" id="overlay${char.node.name.first}"></div></a>
+  `
+
   characterHTML.style.backgroundImage = "url(" + char.node.image.large + ")";
   charactersHTML.append(characterHTML)
+
+  //Add variable local storage
+  document.getElementById(charId).addEventListener('click', event => {
+    // console.log("click on something")
+    // console.log(charId)
+
+    if(charId === "characterSasha"){
+      console.log("click on overlay sasha")  
+      localStorage.setItem("prenom", "Sasha");
+    }
+    else if(charId === "characterHange"){
+      console.log("click on overlay Hange")  
+      localStorage.setItem("prenom", "Hange");
+    }
+    else if(charId === "characterLevi"){
+      console.log("click on overlay Levi")  
+      localStorage.setItem("prenom", "Levi");
+    }
+    else if(charId === "characterArmin"){
+      console.log("click on overlay Armin")  
+      localStorage.setItem("prenom", "Armin");
+    }
+    else if(charId === "characterErwin"){
+      console.log("click on overlay Erwin")  
+      localStorage.setItem("prenom", "Erwin");
+    }
+    else if(charId === "characterConnie"){
+      console.log("click on overlay Connie")  
+      localStorage.setItem("prenom", "Connie");
+    }
+    else if(charId === "characterMikasa"){
+      console.log("click on overlay Mikasa")  
+      localStorage.setItem("prenom", "Mikasa");
+    }
+    else if(charId === "characterEren"){
+      console.log("click on overlay Eren")  
+      localStorage.setItem("prenom", "Eren");
+    }
+  });
 }
-
 //RETURN ERROR
-
 function handleError(error) {
     console.error(error);
 }
+
+// ************************************************************************* Attribuer une valeur aux choix de personnages direct *************************************************************************
+
+
 
 
 // ************************************************************************* AFFICHER QUESTIONNAIRE *************************************************************************
@@ -113,6 +154,9 @@ document.getElementById('choice').addEventListener('click', event => {
   document.getElementById('container-choice').style.display = "none"
   document.getElementById('container-quiz').style.display = "flex"
 });
+
+
+
 
 
 // ************************************************************************* QUESTIONNAIRE DE PERSONNALITÉ *************************************************************************
@@ -505,55 +549,131 @@ document.getElementById('quest5Choice1').addEventListener('click', event => {
   console.log('mikasa ' + mikasa)
   document.getElementById('fifth-question').style.display = "none"
 
+// AFFICHER LE PERSO AVEC LA VALEUR LA PLUS GRANDE
   if(sasha > hange && sasha > levi && sasha > armin && sasha > erwin && sasha > connie && sasha > eren  && sasha > mikasa){
-    document.getElementById('result-sasha').style.display = "block"
-    console.log("Je suis Sasha)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=t3qKWjClYafVC")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("sasha-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
 
-  //   showinfosResult(sasha)
+    });
 
-  //   function showinfosResult(char){
-  //     let resultHTML = document.getElementById("sasha-desc")
-  //     resultHTML.innerHTML = `
-  //         <h2>Bravo, tu es : ${char.node.name.first}</h2>
-  //         <div class="result-name"></div>
-  //         <div class="result-description">${char.node.description}</div>
-  //         `
-  //     document.getElementById("sasha-img").style.backgroundImage = "url(" + char.node.image.large + ")";
-  // }
+    document.getElementById('result-sasha').style.display = "flex"
+    console.log("Je suis Sasha")
 
-
+    localStorage.setItem("prenom", "Sasha");
   }
   else if(hange > sasha && hange > levi && hange > armin && hange > erwin && hange > connie && hange > eren  && hange > mikasa){
-    document.getElementById('result-hange').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze3K0G3eC6hENvG")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("hange-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-hange').style.display = "flex"
     console.log("Je suis Hange)")
+    localStorage.setItem("prenom", "Hange");
   }
   else if(levi > sasha && levi > hange && levi > armin && levi > erwin && levi > connie && levi > eren  && levi > mikasa){
-    document.getElementById('result-levi').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=v4sop1HXMxRug")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("levi-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-levi').style.display = "flex"
     console.log("Je suis Levi)")
+    localStorage.setItem("prenom", "Levi");
   }
   else if(armin > sasha && armin > hange && armin > levi && armin > erwin && armin > connie && armin > eren  && armin > mikasa){
-    document.getElementById('result-armin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=Z1Bd5rqUqJ2UM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("armin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+
+    document.getElementById('result-armin').style.display = "flex"
     console.log("Je suis Armin")
+    localStorage.setItem("prenom", "Armin");
   }
   else if(erwin > sasha && erwin > hange && erwin > levi && erwin > armin && erwin > connie && erwin > eren  && erwin > mikasa){
-    document.getElementById('result-erwin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclMiQ2NAG4z1eM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("erwin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-erwin').style.display = "flex"
     console.log("Je suis Erwin)")
+    localStorage.setItem("prenom", "Erwin");
   }
   else if(connie > sasha && connie > hange && connie > levi && connie > armin && connie > erwin && connie > eren  && connie > mikasa){
-    document.getElementById('result-connie').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclHUESu6pUKLAs")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("connie-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+  
+    });
+    document.getElementById('result-connie').style.display = "flex"
     console.log("Je suis Connie)")
+    localStorage.setItem("prenom", "Connie");
   }
   else if(eren > sasha && eren > hange && eren > levi && eren > armin && eren > erwin && eren > connie  && eren > mikasa){
-    document.getElementById('result-eren').style.display = "block"
-    console.log("Je suis Eren)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
+    console.log("Je suis Eren")
+    localStorage.setItem("prenom", "Eren");
   }
   else if(mikasa > sasha && mikasa > hange && mikasa > levi && eren > armin && mikasa > erwin && mikasa > connie  && mikasa > eren){
-    document.getElementById('result-mikasa').style.display = "block"
-    console.log("Je suis Mikasa)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=2InKXcWcMZ9Is")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("mikasa-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-mikasa').style.display = "flex"
+    console.log("Je suis Mikasa")
+    localStorage.setItem("prenom", "Mikasa");
   }
 
-  // document.getElementById('result-section').style.display = "block"
-});
+  // Si 2 résultats sont les mêmes afficher Eren
+  else{
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
+    console.log("Je suis Eren")
+    localStorage.setItem("prenom", "Eren");
+  }});
+
+
 document.getElementById('quest5Choice2').addEventListener('click', event => {
   eren = eren + 2
   armin = armin + 2
@@ -569,40 +689,126 @@ document.getElementById('quest5Choice2').addEventListener('click', event => {
   document.getElementById('fifth-question').style.display = "none"
 
   if(sasha > hange && sasha > levi && sasha > armin && sasha > erwin && sasha > connie && sasha > eren  && sasha > mikasa){
-    document.getElementById('result-sasha').style.display = "block"
-    console.log("Je suis Sasha)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=t3qKWjClYafVC")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("sasha-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+    });
+    document.getElementById('result-sasha').style.display = "flex"
+    console.log("Je suis Sasha")
+    localStorage.setItem("prenom", "Sasha");
   }
   else if(hange > sasha && hange > levi && hange > armin && hange > erwin && hange > connie && hange > eren  && hange > mikasa){
-    document.getElementById('result-hange').style.display = "block"
-    console.log("Je suis Hange)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze3K0G3eC6hENvG")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("hange-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-hange').style.display = "flex"
+    console.log("Je suis Hange")
+    localStorage.setItem("prenom", "Hange");
   }
   else if(levi > sasha && levi > hange && levi > armin && levi > erwin && levi > connie && levi > eren  && levi > mikasa){
-    document.getElementById('result-levi').style.display = "block"
-    console.log("Je suis Levi)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=v4sop1HXMxRug")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("levi-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-levi').style.display = "flex"
+    console.log("Je suis Levi")
+    localStorage.setItem("prenom", "Levi");
   }
   else if(armin > sasha && armin > hange && armin > levi && armin > erwin && armin > connie && armin > eren  && armin > mikasa){
-    document.getElementById('result-armin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=Z1Bd5rqUqJ2UM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("armin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-armin').style.display = "flex"
     console.log("Je suis Armin")
+    localStorage.setItem("prenom", "Armin");
   }
   else if(erwin > sasha && erwin > hange && erwin > levi && erwin > armin && erwin > connie && erwin > eren  && erwin > mikasa){
-    document.getElementById('result-erwin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclMiQ2NAG4z1eM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("erwin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-erwin').style.display = "flex"
     console.log("Je suis Erwin)")
+    localStorage.setItem("prenom", "Erwin");
   }
   else if(connie > sasha && connie > hange && connie > levi && connie > armin && connie > erwin && connie > eren  && connie > mikasa){
-    document.getElementById('result-connie').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclHUESu6pUKLAs")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("connie-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+  
+    });
+    document.getElementById('result-connie').style.display = "flex"
     console.log("Je suis Connie)")
+    localStorage.setItem("prenom", "Connie");
   }
   else if(eren > sasha && eren > hange && eren > levi && eren > armin && eren > erwin && eren > connie  && eren > mikasa){
-    document.getElementById('result-eren').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
     console.log("Je suis Eren)")
+    localStorage.setItem("prenom", "Eren");
   }
   else if(mikasa > sasha && mikasa > hange && mikasa > levi && eren > armin && mikasa > erwin && mikasa > connie  && mikasa > eren){
-    document.getElementById('result-mikasa').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=2InKXcWcMZ9Is")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("mikasa-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-mikasa').style.display = "flex"
     console.log("Je suis Mikasa)")
+    localStorage.setItem("prenom", "Mikasa");
   }
 
-  // document.getElementById('result-section').style.display = "block"
-});
+  // Si 2 résultats sont les mêmes afficher Eren
+  else{
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
+    console.log("Je suis Eren")
+    localStorage.setItem("prenom", "Eren");
+  }});
+
+
+
 document.getElementById('quest5Choice3').addEventListener('click', event => {
   erwin = erwin + 2
   levi = levi + 2
@@ -618,39 +824,126 @@ document.getElementById('quest5Choice3').addEventListener('click', event => {
   document.getElementById('fifth-question').style.display = "none"
 
   if(sasha > hange && sasha > levi && sasha > armin && sasha > erwin && sasha > connie && sasha > eren  && sasha > mikasa){
-    document.getElementById('result-sasha').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=t3qKWjClYafVC")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("sasha-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-sasha').style.display = "flex"
     console.log("Je suis Sasha)")
+    localStorage.setItem("prenom", "Sasha");
   }
   else if(hange > sasha && hange > levi && hange > armin && hange > erwin && hange > connie && hange > eren  && hange > mikasa){
-    document.getElementById('result-hange').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze3K0G3eC6hENvG")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("hange-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-hange').style.display = "flex"
     console.log("Je suis Hange)")
+    localStorage.setItem("prenom", "Hange");
   }
   else if(levi > sasha && levi > hange && levi > armin && levi > erwin && levi > connie && levi > eren  && levi > mikasa){
-    document.getElementById('result-levi').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=v4sop1HXMxRug")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("levi-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-levi').style.display = "flex"
     console.log("Je suis Levi)")
+    localStorage.setItem("prenom", "Levi");
   }
   else if(armin > sasha && armin > hange && armin > levi && armin > erwin && armin > connie && armin > eren  && armin > mikasa){
-    document.getElementById('result-armin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=Z1Bd5rqUqJ2UM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("armin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-armin').style.display = "flex"
     console.log("Je suis Armin")
+    localStorage.setItem("prenom", "Armin");
   }
   else if(erwin > sasha && erwin > hange && erwin > levi && erwin > armin && erwin > connie && erwin > eren  && erwin > mikasa){
-    document.getElementById('result-erwin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclMiQ2NAG4z1eM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("erwin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-erwin').style.display = "flex"
     console.log("Je suis Erwin)")
+    localStorage.setItem("prenom", "Erwin");
   }
   else if(connie > sasha && connie > hange && connie > levi && connie > armin && connie > erwin && connie > eren  && connie > mikasa){
-    document.getElementById('result-connie').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclHUESu6pUKLAs")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("connie-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+  
+    });
+    document.getElementById('result-connie').style.display = "flex"
     console.log("Je suis Connie)")
+    localStorage.setItem("prenom", "Connie");
   }
   else if(eren > sasha && eren > hange && eren > levi && eren > armin && eren > erwin && eren > connie  && eren > mikasa){
-    document.getElementById('result-eren').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
     console.log("Je suis Eren)")
+    localStorage.setItem("prenom", "Eren");
   }
   else if(mikasa > sasha && mikasa > hange && mikasa > levi && eren > armin && mikasa > erwin && mikasa > connie  && mikasa > eren){
-    document.getElementById('result-mikasa').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=2InKXcWcMZ9Is")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("mikasa-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-mikasa').style.display = "flex"
     console.log("Je suis Mikasa)")
+    localStorage.setItem("prenom", "Mikasa");
   }
-  // document.getElementById('result-section').style.display = "block"
+    // Si 2 résultats sont les mêmes afficher Eren
+    else{
+      fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+      document.getElementById('result-eren').style.display = "flex"
+      console.log("Je suis Eren")
+      localStorage.setItem("prenom", "Eren");
+    }
 });
+
+
 document.getElementById('quest5Choice4').addEventListener('click', event => {
   hange = hange + 2
   connie = connie + 3
@@ -666,37 +959,123 @@ document.getElementById('quest5Choice4').addEventListener('click', event => {
   document.getElementById('fifth-question').style.display = "none"
 
   if(sasha > hange && sasha > levi && sasha > armin && sasha > erwin && sasha > connie && sasha > eren  && sasha > mikasa){
-    document.getElementById('result-sasha').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=t3qKWjClYafVC")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("sasha-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-sasha').style.display = "flex"
     console.log("Je suis Sasha)")
+    localStorage.setItem("prenom", "Sasha");
   }
   else if(hange > sasha && hange > levi && hange > armin && hange > erwin && hange > connie && hange > eren  && hange > mikasa){
-    document.getElementById('result-hange').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze3K0G3eC6hENvG")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("hange-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-hange').style.display = "flex"
     console.log("Je suis Hange)")
+    localStorage.setItem("prenom", "Hange");
   }
   else if(levi > sasha && levi > hange && levi > armin && levi > erwin && levi > connie && levi > eren  && levi > mikasa){
-    document.getElementById('result-levi').style.display = "block"
-    console.log("Je suis Levi)")
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=v4sop1HXMxRug")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("levi-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-levi').style.display = "flex"
+    console.log("Je suis Levi")
+    localStorage.setItem("prenom", "Levi");
   }
   else if(armin > sasha && armin > hange && armin > levi && armin > erwin && armin > connie && armin > eren  && armin > mikasa){
-    document.getElementById('result-armin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=Z1Bd5rqUqJ2UM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("armin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-armin').style.display = "flex"
     console.log("Je suis Armin")
+    localStorage.setItem("prenom", "Armin");
   }
   else if(erwin > sasha && erwin > hange && erwin > levi && erwin > armin && erwin > connie && erwin > eren  && erwin > mikasa){
-    document.getElementById('result-erwin').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclMiQ2NAG4z1eM")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("erwin-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-erwin').style.display = "flex"
     console.log("Je suis Erwin)")
+    localStorage.setItem("prenom", "Erwin");
   }
   else if(connie > sasha && connie > hange && connie > levi && connie > armin && connie > erwin && connie > eren  && connie > mikasa){
-    document.getElementById('result-connie').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGclHUESu6pUKLAs")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("connie-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+  
+    });
+    document.getElementById('result-connie').style.display = "flex"
     console.log("Je suis Connie)")
+    localStorage.setItem("prenom", "Connie");
   }
   else if(eren > sasha && eren > hange && eren > levi && eren > armin && eren > erwin && eren > connie  && eren > mikasa){
-    document.getElementById('result-eren').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
     console.log("Je suis Eren)")
+    localStorage.setItem("prenom", "Eren");
   }
   else if(mikasa > sasha && mikasa > hange && mikasa > levi && eren > armin && mikasa > erwin && mikasa > connie  && mikasa > eren){
-    document.getElementById('result-mikasa').style.display = "block"
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=2InKXcWcMZ9Is")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("mikasa-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-mikasa').style.display = "flex"
     console.log("Je suis Mikasa)")
+    localStorage.setItem("prenom", "Mikasa");
   }
-  // document.getElementById('result-section').style.display = "block"
+  // Si 2 résultats sont les mêmes afficher Eren
+  else{
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohze0kySvRz1SLFhS")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      let gifContainer = document.getElementById("eren-img")
+      gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+
+    });
+    document.getElementById('result-eren').style.display = "flex"
+    console.log("Je suis Eren")
+    localStorage.setItem("prenom", "Eren");
+  }
 });
 
+// localStorage.setItem >> Getitem

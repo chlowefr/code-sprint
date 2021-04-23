@@ -1,106 +1,69 @@
-// Here we define our query as a multi-line string
-// Storing it in a separate .graphql/.gql file is also possible
-// Requête 
-var query = `
-query ($id: Int) { # Define which variables will be used in the query (id)
-  Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-    id   
-    characters {
-        edges {
-          node { # The character data node
-            name {
-              first
-              last
-            }
-            description
-            isFavourite
-            image {
-                large
-            }
-          }
-          role
-        }
-      }
-  }
-}
-`;
-// Define our query variables and values that will be used in the query request
-var variables = {
-    id: 16498
-};
-// Define the config we'll need for our Api request
-var url = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables
-        })
-    };
-// Make the HTTP Api request
-fetch(url, options)
-    .then(handleResponse)
-    .then(handleData)
-    .catch(handleError);
-function handleResponse(response) {
-    return response.json().then(function (json) {
-    return response.ok ? json : Promise.reject(json);
+document.getElementById('gif1-milan').addEventListener('click', event => {
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=xUPGcjickCJB2QOcM0")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+
+        let gifContainer = document.getElementById("popup-gif-titan1")
+        gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
     });
-}
 
-function handleData(data) {
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan1').style.display='none';
+    },4000);
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan1').style.display='flex';
+    },1000);
+})
+document.getElementById('gif2-milan').addEventListener('click', event => {
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3ohzdUAEh2h35yNw1a")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
 
-    console.log(data);
+        let gifContainer = document.getElementById("popup-gif-titan2")
+        gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+    });
 
-    const sasha = getChar(data, 0)
-    showinfos(sasha)
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan2').style.display='none';
+    },4000);
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan2').style.display='flex';
+    },1000);
+})
+document.getElementById('gif3-milan').addEventListener('click', event => {
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=3o7btQ8jDTPGDpgc6I")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
 
-    const zoë = getChar(data, 2)
-    showinfos(zoë)
+        let gifContainer = document.getElementById("popup-gif-titan3")
+        gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+    });
 
-    const levi = getChar(data, 3)
-    showinfos(levi)
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan3').style.display='none';
+    },4000);
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan3').style.display='flex';
+    },1000);
+})
+document.getElementById('gif4-milan').addEventListener('click', event => {
+    fetch("https://api.giphy.com/v1/gifs?&api_key=AFul8cdfMMbTEgrdaCnmZhLx8KK6iR3s&ids=VbT5nZY3ZjXQA")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
 
-    const armin = getChar(data, 4)
-    showinfos(armin)
+        let gifContainer = document.getElementById("popup-gif-titan4")
+        gifContainer.style.backgroundImage = "url(" + data.data[0].images.downsized.url + ")";
+    });
 
-    const erwin = getChar(data, 6)
-    showinfos(erwin)
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan4').style.display='none';
+    },4000);
+    setTimeout(() => {
+        document.getElementById('popup-gif-titan4').style.display='flex';
+    },1000);
+})
 
-    const connie = getChar(data, 7)
-    showinfos(connie)
-
-    const eren = getChar(data, 10)
-    showinfos(eren)
-
-    const mikasa = getChar(data, 17)
-    showinfos(mikasa)
-
-}
-
-function getChar(data, id){
-    let char = data.data.Media.characters.edges[id]
-    return char
-}
-function showinfos(char){
-    let charactersHTML = document.getElementById("characters")
-    const characterHTML = document.createElement("div")
-    characterHTML.id = "character" + char.node.name.first
-    characterHTML.classList.add("card-perso")
-    characterHTML.innerHTML = `
-            <h2>${char.node.name.first}</h2>
-            <div class="overlay"></div>
-        `
-    characterHTML.style.backgroundImage = "url(" + char.node.image.large + ")";
-    charactersHTML.append(characterHTML)
-}
-
-//RETURN ERROR
-
-function handleError(error) {
-    console.error(error);
-}

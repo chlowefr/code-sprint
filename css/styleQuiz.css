@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'cloister_blacklight';
+    src: url('cloisterblack-webfont.woff2') format('woff2'),
+         url('cloisterblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background-image: url(../media/bg-city.png);
+    background-size: cover;
+    padding: 0 5%;
+    cursor: url(http://www.cursor.cc/cursor/873/21/cursor.png),auto;
+    position: relative;
+    height: 100vh;
+}
+
+.btn{
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 15px;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-black{
+    background-color: black;
+    border: none;
+}
+.btn-left{
+    position: absolute;
+    left: 100px;
+    top: 40px;
+}
+.btn-black a{
+    color: white;
+    font-family: Roboto;
+}
+h1{
+    font-family: cabazon, serif;
+    font-weight: regular;
+    font-size: 50px;
+    color: #000000;
+}
+h3{
+    font-family: cabazon, serif;
+    font-weight: regular;
+    font-size: 30px;
+    color: #000000;
+    text-align: center;
+}
+.container{
+    width: 100%;
+}
+#container-quiz, #container-choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 30px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+}
+.row-quest{
+    flex-wrap: nowrap;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.card-container{
+    display: flex;
+    justify-content: space-between;
+}
+.card-choice{
+    background-image: url(../media/bg-logo-bataillon-exploration.jpg);
+    background-position: center;
+    width: 20vw;
+    background-size: cover;
+    margin: 20px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+    position: relative;
+    color: white;
+}
+.overlay-full h2{
+
+    font-size: 40px;
+    color: white;
+    font-family: Roboto, serif;
+    z-index: 9;
+    text-align: center;
+    font-weight: regular;
+}
+.overlay-full{
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background-color:  #01448ce3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    cursor: pointer;
+}
+.overlay-full:hover {
+    background-color:  #01448cb7;
+    transition: 0.25s ease-in;
+  }
+.card-perso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 200px;
+    height: 275px;
+    background-size: cover;
+    margin: 20px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.overlay{
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    background: linear-gradient(180deg, #ffffff00, #00000088);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 0;
+    cursor: pointer;
+}
+.overlay:hover {
+    opacity: 0;
+    transition: 0.25s ease-in;
+  }
+.card-perso h2{
+    position: absolute;
+    bottom: 0;
+    font-size: 40px;
+    color: white;
+    font-family: cabazon, serif;
+    z-index: 9;
+}
+.gif{
+    height: 200px;
+    width: 300px;
+}
+.label-gif{
+    height: 250px;
+    width: 450px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.input{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 30px;
+}
+.input label{
+    font-family: roboto, serif;
+    font-weight: regular;
+    font-size: 16px;
+    line-height: 16px;
+    color: #000000;
+    margin-left: 5px;
+    outline: solid rgb(255, 255, 255) 10px;
+    background-size: cover;
+    cursor: pointer;
+}
+.input label span{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+input[type="radio"]{
+    position: absolute;
+    top: -9000px;
+}
+
+#result-section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.result-questionnaire{
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 50vw;
+}
+.result-full-desc{
+    background-color: white;
+    padding: 0px 20px 20px 20px;
+    font-family: Roboto;
+}
+.result-full-desc p{
+    margin: 0px;
+}
+.result-full-desc h2{
+    margin-bottom: 10px;
+}
+.result-img{
+    height: 400px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+    background-size: cover;
+}
+.result-btn{
+    text-decoration: none;
+    background-color: black;
+    border: none;
+    padding: 10px;
+}
+.result-btn a{
+    color: white;
+}
+
+/*DISPLAY NONE*/
+
+#container-quiz{
+    display: none;
+}
+#second-question{
+    display: none;
+}
+#third-question{
+    display: none;
+}
+#fourth-question{
+    display: none;
+}
+#fifth-question{
+    display: none;
+}
+#result-sasha, #result-hange, #result-levi, #result-armin, #result-erwin, #result-connie, #result-eren, #result-mikasa{
+    display: none;
+}
+
+
+

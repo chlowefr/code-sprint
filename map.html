@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAP SNK</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/swt8ete.css" />
+    <link rel="stylesheet" href="css/styleMap.css" />
+  </head>
+  <body>
+    <div class="home-btn">
+      <button class="btn" id="btn-color">
+        <a href="index.html">Retour à l'accueil</a>
+      </button>
+    </div>
+    <div id="yourChar">
+      <div class="row" id="characters"></div>
+    </div>
+
+    <div id="container-map">
+      <!--MAP color-->
+
+      <!--MAP color-->
+      <div id="container-button">
+        <h3>Où veux-tu aller ?</h3>
+        <div class="btn-flex">
+          <button type="button" class="btn btn-black" id="chang-milan">
+            Shinganshina
+          </button>
+          <button type="button" class="btn btn-black" id="chang-tokyo">
+            Trost
+          </button>
+          <button type="button" class="btn btn-black" id="chang-podgorica">
+            Yalkell
+          </button>
+        </div>
+      </div>
+
+      <!--ITEMS-->
+      <div id="item">
+        <div id="itemsChar">
+          <div id="character">
+            <div class="char" id="charMikasa">
+              <img src="media/face-mikasa.png" alt="" />
+              <div class="contBlague" id="container-blague1"></div>
+            </div>
+            <div class="char" id="charArmin">
+              <img src="media/face-armin.png" alt="" />
+              <div class="contBlague" id="container-blague2"></div>
+            </div>
+            <div class="char" id="charEren">
+              <img src="media/face-eren.png" alt="" />
+              <div class="contBlague" id="container-blague3"></div>
+            </div>
+            <div class="char" id="charSacha">
+              <img src="media/face-sasha.png" alt="" />
+              <div class="contBlague" id="container-blague4"></div>
+            </div>
+            <div class="char" id="charZoe">
+              <img src="media/face-hange.png" alt="" />
+              <div class="contBlague" id="container-blague5"></div>
+            </div>
+            <div class="char" id="charLevi">
+              <img src="media/face-levi.png" alt="" />
+              <div class="contBlague" id="container-blague6"></div>
+            </div>
+            <div class="char" id="charErwin">
+              <img src="media/face-erwin.png" alt="" />
+              <div class="contBlague" id="container-blague7"></div>
+            </div>
+            <div class="char" id="charConnie">
+              <img src="media/face-connie.png" alt="" />
+              <div class="contBlague" id="container-blague8"></div>
+            </div>
+            <div class="titan" id="gif1-milan">
+              <div class="popup-gif-titan" id="popup-gif-titan1"></div>
+              <img src="media/titan-face-1.png" alt="" />
+            </div>
+            <div class="titan" id="gif2-milan">
+              <div class="popup-gif-titan" id="popup-gif-titan2"></div>
+              <img src="media/titan-face-2.png" alt="" />
+            </div>
+            <div class="titan" id="gif3-milan">
+              <div class="popup-gif-titan" id="popup-gif-titan3"></div>
+              <img src="media/titan-face-3.png" alt="" />
+            </div>
+            <div class="titan" id="gif4-milan">
+              <div class="popup-gif-titan" id="popup-gif-titan4"></div>
+              <img src="media/titan-face-4.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--METEO-->
+      <div id="div-meteo">
+        <div class="meteo-ville" id="container-meteo-milan"></div>
+        <div class="meteo-ville" id="container-meteo-tokyo"></div>
+        <div class="meteo-ville" id="container-meteo-podgorica"></div>
+      </div>
+
+      <!--MAP MILAN-->
+      <div id="map-milan"></div>
+
+      <!--MAP Tokyo-->
+      <div id="map-tokyo"></div>
+
+      <!--MAP Podgorica-->
+      <div id="map-podgorica"></div>
+    </div>
+
+    <script src="js/scriptMap.js"></script>
+  </body>
+</html>

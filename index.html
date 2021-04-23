@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SNK</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
-    <link rel="stylesheet" href="https://use.typekit.net/swt8ete.css">
-</head>
-<body>
-    <h1>Où est le titan ?</h1>
-    <div class="container">
-        <button><a href="choice.html">Choisir mon personnage</a></button>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.0/normalize.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/swt8ete.css" />
+  </head>
+  <body>
+    <video autoplay loop muted id="bgvid">
+      <source src="media/video-bg-home.mp4" type="video/mp4" />
+    </video>
+
+    <div class="container" id="home-container">
+      <img class="logo-snk" src="media/Logo-snk.png" alt="" />
+      <div class="preambule">
+        <h1>Bienvenue sur la plateforme SNK Lovers !</h1>
+        <h2>Pour commencer l'aventure, choisis ton personnage.</h2>
+        <button class="btn btn-black">
+          <a href="quiz.html">Choisir mon personnage</a>
+        </button>
+        <img class="levi-png" src="media/levi-png.png" alt="" />
+      </div>
+      <img
+        class="img-home-btm"
+        src="media/attack-on-titan-png-images-transparent-free-download-pngmartcom-attack-on-titan-chibi-png-hd-1024_720.png"
+        alt=""
+      />
+      <img
+        class="img-home-top"
+        src="media/hange-jump-home.png"
+        alt=""
+      />
     </div>
-    <!-- <script src="js/script.js"></script> -->
-</body>
+
+    <script src="js/scriptChoice.js"></script>
+  </body>
 </html>

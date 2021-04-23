@@ -1,0 +1,345 @@
+@font-face {
+    font-family: 'cloister_blacklight';
+    src: url('cloisterblack-webfont.woff2') format('woff2'),
+         url('cloisterblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    margin: 0px;
+    cursor: url(http://www.cursor.cc/cursor/873/21/cursor.png),auto;
+    position: relative;
+}
+
+/*-------------------------------------------------------------------------------------HOME BTN------------------------------------------------------------------*/
+.home-btn{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    z-index: 9000;
+}
+#btn-color{
+    background-color: #921D23;
+    box-shadow: rgba(0, 0, 0, 0.856) 0px 0px 10px;
+}
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+/*-------------------------------------------------------------------------------------PERSO card bottom------------------------------------------------------------------*/
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#yourChar{
+    z-index: 995;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#container-choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.card-container{
+    display: flex;
+    justify-content: space-between;
+}
+.card-perso{
+    padding: 100px 150px;
+    background-size: cover;
+    background-position: center;
+}
+.your-perso-name-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 0px;
+    width: 100%;
+    border-radius: 20px 0px 0px 0px;
+}
+.your-perso-name{
+    margin: 0;
+    font-family: cabazon, serif;
+    font-size: 25px;
+}
+/*-------------------------------------------------------------------------------------container Couleur------------------------------------------------------------------*/
+#container-button{
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 50px;
+    border-radius: 0px 0px 20px 0px;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.btn{
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 13px;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px 10px;
+    border: none;
+    color: white;
+}
+#chang-milan{
+    background-color: #921D23;
+}
+#chang-tokyo, #chang-podgorica{
+    background-color: #000000;
+}
+
+/*-------------------------------------------------------------------------------------container Blague------------------------------------------------------------------*/
+.contBlague{
+    position: absolute;
+    z-index: 1501;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    border-radius: 20px;
+    top: -160px;
+    width: 250px;
+    height: 150px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+}
+.joke-joke, .joke-answer{
+    margin: 5px 0px;
+    font-family: Roboto;
+}
+.joke-joke{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/*-------------------------------------------------------------------------------------container meteo ville------------------------------------------------------------------*/
+#div-meteo{
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 50px;
+    border-radius: 0px 0px 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.171) 0px 0px 12px;
+    min-width: 8vw;
+}
+.meteo-ville{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#container-button h3, .meteo-name{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: cabazon, serif;
+    font-size: 25px;
+}
+.meteo-temp, .meteo-statu{
+    margin: 0;
+    font-family: Roboto;
+}
+#container-meteo-milan{
+    top: 20px;
+    left: 50px;
+    /* z-index: 9000; */
+    display: flex;
+}
+#container-meteo-tokyo{
+    top: 20px;
+    left: 50px;
+    /* z-index: 400; */
+    display: none;
+}
+#container-meteo-podgorica{
+    top: 20px;
+    left: 50px;
+    /* z-index: 401; */
+    display: none;
+}
+#container-meteo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9050;
+}
+
+
+/*---------------------------------------------------------------------------------------------map ville-------------------------------------------------------------------------*/
+#container-map{
+    width: 100vw; 
+    height: 100vh;
+    position: relative;
+}
+#container-map > div{
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+}
+#map-milan{
+    width: 100%; 
+    height: 100vh;
+    z-index: 992;
+}
+#map-podgorica{
+    
+    width: 100%; 
+    height: 100vh;
+    z-index: 990;
+}
+#map-tokyo{
+    
+    width: 100%; 
+    height: 100vh;
+    z-index: 991;
+}
+
+
+/*-------------------------------------------------------------------------------PERSONNAGE & titans----------------------------------------------------------------*/
+#item{
+    width: 100vw;
+    height: 100vh;
+}
+#itemsChar{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1001;
+}
+#character {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 999;
+}
+.char{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    /*bottom: 0;
+    right: 0;*/
+}
+.char img{
+    filter: drop-shadow(0px 0px 12px #00000050);
+}
+
+/*Mikasa*/
+#charMikasa{
+    position: absolute;
+    top: 52vh;
+    left: 55vw;
+}
+/*Armin*/
+#charArmin{
+    position: absolute;
+    top: 53vh;
+    left: 45vw;
+}
+
+/*Eren*/
+#charEren{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+}
+
+/*Sacha*/
+#charSacha{
+    position: absolute;
+    top: 50vh;
+    left: 87vw;
+}
+
+/*zoe*/
+#charZoe{
+    position: absolute;
+    top: 23vh;
+    left: 65vw;
+}
+
+/*Levi*/
+#charLevi{
+    position: absolute;
+    top: 50vh;
+    left: 11vw;
+}
+
+/*Erwin*/
+#charErwin{
+    position: absolute;
+    top: 80vh;
+    left: 23vw;
+}
+
+/*Connie*/
+#charConnie{
+    position: absolute;
+    top: 45vh;
+    left: 83vw;
+}
+
+
+/*----------------------------------------------------------------------------------------GIFS--------------------------------------------------------------------------------------*/
+
+.titan{
+    cursor: pointer;
+    position: relative;
+}
+.titan img{
+    width: 60px;
+    position: absolute;
+    top: 0;
+    filter: drop-shadow(0px 0px 12px #00000050);
+}
+.popup-gif-titan{
+    display: none;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: -140px;
+    width: 250px;
+    height: 150px;
+    z-index: 998; 
+    border-radius: 20px;
+}
+#gif1-milan{
+    position: absolute;
+    top: 23vh;
+    left: 45vw;
+}
+#gif2-milan{
+    position: absolute;
+    top: 15vh;
+    left: 80vw;
+}
+#gif3-milan{
+    position: absolute;
+    top: 75vh;
+    left: 78vw;
+}
+#gif4-milan{
+    position: absolute;
+    top: 40vh;
+    left: 28vw;
+}
