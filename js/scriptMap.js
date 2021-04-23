@@ -51,7 +51,6 @@ function meteoMilanDisplay(data) {
             <p class="meteo-temp"> ${data.main.temp}°C</p>
             <p class="meteo-statu"> ${data.weather[0].main} </p>
             `
-
 }
 
 // meteo-tokyo
