@@ -46,11 +46,48 @@ fetch(`http://api.openweathermap.org/data/2.5/weather?q=Milan&lang=it&units=metr
 function meteoMilanDisplay(data) {
     console.log(data)
     let meteoDisplayHTML = document.getElementById("container-meteo-milan")
-    meteoDisplayHTML.innerHTML = `
+            
+    if(data.weather[0].main === "Clouds"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Rain"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud-showers-heavy"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Clear"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-sun"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Snow"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-snowflake"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Wind"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-wind"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else{
+        meteoDisplayHTML.innerHTML = `
             <h2 class="meteo-name">Singanshina</h2>
             <p class="meteo-temp"> ${data.main.temp}°C</p>
-            <p class="meteo-statu"> ${data.weather[0].main} </p>
             `
+    }
 }
 
 // meteo-tokyo
@@ -61,11 +98,47 @@ fetch(`http://api.openweathermap.org/data/2.5/weather?q=Tokyo&lang=fr&units=metr
 function meteoTokyoDisplay(data) {
     console.log(data)
     let meteoDisplayHTML = document.getElementById("container-meteo-tokyo")
-    meteoDisplayHTML.innerHTML = `
-            <h2 class="meteo-name">Trost</h2>
+    if(data.weather[0].main === "Clouds"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud"></i>
             <p class="meteo-temp"> ${data.main.temp}°C</p>
-            <p class="meteo-statu"> ${data.weather[0].main} </p>
+        `   
+    }
+    else if(data.weather[0].main === "Rain"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud-showers-heavy"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Clear"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-sun"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Snow"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-snowflake"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Wind"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-wind"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else{
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
             `
+    }
 
 }
 
@@ -77,11 +150,47 @@ fetch(`http://api.openweathermap.org/data/2.5/weather?q=Podgorica&lang=fr&units=
 function meteoDisplay(data) {
     console.log(data)
     let meteoDisplayHTML = document.getElementById("container-meteo-podgorica")
-    meteoDisplayHTML.innerHTML = `
-    <h2 class="meteo-name">Yalkell</h2>
-    <p class="meteo-temp"> ${data.main.temp}°C</p>
-    <p class="meteo-statu"> ${data.weather[0].main} </p>
-    `
+    if(data.weather[0].main === "Clouds"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Rain"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-cloud-showers-heavy"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Clear"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-sun"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Snow"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-snowflake"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else if(data.weather[0].main === "Wind"){
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <i class="fas fa-wind"></i>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+        `   
+    }
+    else{
+        meteoDisplayHTML.innerHTML = `
+            <h2 class="meteo-name">Singanshina</h2>
+            <p class="meteo-temp"> ${data.main.temp}°C</p>
+            `
+    }
 }
 
 
@@ -686,17 +795,3 @@ function handleError(error) {
 
 
 
-// //API LOVE CALCULATOR
-// fetch("https://love-calculator.p.rapidapi.com/getPercentage?fname=Eren&sname=Mikasa", {
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-key": "30704ceb81mshc291e6f9f8ddd50p141e25jsna69ded8619cf",
-//         "x-rapidapi-host": "love-calculator.p.rapidapi.com"
-//     }
-// })
-//     .then(response => {
-//         console.log(response);
-//     })
-//     .catch(err => {
-//         console.error(err);
-//     });
